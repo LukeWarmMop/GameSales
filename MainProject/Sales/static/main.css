@@ -1,0 +1,114 @@
+#gamesTable {
+    border-collapse: collapse;
+    width: 100%; 
+    border: 1px solid #ddd; 
+    font-size: 18px; 
+  }
+  
+  #gamesTable th, #gamesTable td {
+    text-align: left; 
+    padding: 12px; 
+  }
+  
+  #gamesTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #gamesTable tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  #gamesTable thead {
+    background-color: #3758fa;
+    color: white;
+  }
+
+  .content {
+    padding-top: 1em;
+  }
+
+  nav ul {
+    background-color: #3758fa;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  nav ul li {
+    float: left;
+  }
+  
+  nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  nav ul li a:hover {
+    background-color: #111;
+  }
+
+  .amountButton {
+    background-color: #3758fa;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .filterButton{
+    background-color: #3758fa;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .sortButton{
+    background-color: white;
+    color: black;
+    padding: 1px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+
+  .cookieBanner{
+    background-color: #3758fa;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .cookieBanner button{
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }

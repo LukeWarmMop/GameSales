@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}All Games Sales{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form class="sort" action="/limit" method="POST" id="platformForm">
+    <label>Amount to Show</label>
+    <input class="amountButton" type="submit" text="500" name="limit" value="500">
+    <input class="amountButton" type="submit" text="50" name="limit" value="50">
+    <input class="amountButton" type="submit" text="10" name="limit" value="10">
+</form>
+
+<table border="1" id="gamesTable">
+    <thead>
+        <tr>
+            <td>
+                Name
+                <button class="sortButton" onclick="window.location='/showAllNameAsc';"> ↑ </button>
+                <button class="sortButton" onclick="window.location='/showAllNameDesc';"> ↓ </button>
+            </td>
+            <td>Date</td>
+            <td>Platform</td>
+            <td>Publisher</td>
+            <td>Developer</td>
+            <td>Shipped</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in results %}
+        <tr>
+            <td>{{ row["name"] }}</td>
+            <td>{{ row["date"] }}</td>
+            <td>{{ row["platform"] }}</td>
+            <td>{{ row["publisher"] }}</td>
+            <td>{{ row["developer"] }}</td>
+            <td>{{ row["shipped"] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/">Go back to home page</a>
+{% endblock %}

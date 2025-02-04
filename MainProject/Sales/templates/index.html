@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 style="font-size: 300%; text-align: center;">
+    {% block title %}Explore games sales{% endblock %}
+</h1>
+{% endblock %}
+
+{% block content %}
+<div style="font-family: verdana; text-align: center; margin-left: auto; margin-right: auto; font-size: 200%;">
+    This site allows you to explore games sales data.
+    Data is imported and modified from <a href="https://www.kaggle.com/datasets/gsimonx37/vgchartz" target="_blank">https://www.kaggle.com/datasets/gsimonx37/vgchartz</a>.
+    <br>Accuracy is not guaranteed. Please read the disclaimer.
+</div>
+{% endblock %}

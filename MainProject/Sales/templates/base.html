@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    {% block head %}{% endblock %}
+    <title>Games Shipped</title>
+</head>
+<body>
+    <nav role="navigation" aria-label="main navigation">
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="{{ url_for('showAll') }}">Show All Games</a></li>
+            <li><a href="{{ url_for('filters') }}">Filter</a></li>
+            <li><a href="{{ url_for('graphs') }}">Graphs</a></li>
+        </ul>
+    </nav>
+    <br />
+    <section class="content">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        {% block content %}{% endblock %}
+    </section>
+    <div id="acceptBlock" class="cookieBanner">
+        This site uses cookies for strictly functional purposes only.
+        <button id="accept" class="Accept">Accept</button>
+    </div>
+    <script>
+        window.onload = function () {
+            // This script is used to hide the accept block when they accept
+            // by changing the CSS style. It will run whenever the page loads to this point.
+            var popup = document.getElementById('acceptBlock');
+
+            // Check if the user has previously closed the banner and display/hide it accordingly.
+            if (!localStorage.getItem('closedBanner')) {
+                popup.style.display = "block";
+            } else {
+                popup.style.display = "none";
+            }
+
+            document.getElementById('accept').onclick = function () {
+                // Save into the user's browser that the popup was closed.
+                localStorage.setItem('closedBanner', "true");
+                this.parentNode.parentNode.removeChild(this.parentNode);
+                return false;
+            };
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿{% extends 'base.html' %}
+
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.6.0"></script>
+{% endblock %}
+
+{% block header %}
+<h1>{% block title %}All Games Sales{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form action="/filter" method="POST" id="platformForm">
+    <label for="platform">Choose a Platform to filter:</label>
+    <select name="platform" id="selectPlatform">
+        {% for p in platform %}
+        <option value="{{ p }}">{{ p }}</option>
+        {% endfor %}
+    </select>
+    <input class="filterButton" type="submit" value="Filter">
+</form>
+
+<center>
+    <h4>Titles with most shipped games</h4>
+    <canvas id="myChart" style="width:500px;max-width:1000px;height:500px"></canvas>
+</center>
+
+<script>
+    var xValues = {{ labels|tojson }};
+    var yValues = {{ values|tojson }};
+
+    console.log('xValues:', xValues); 
+    console.log('yValues:', yValues); 
+
+    new Chart("myChart", {
+        plugins: [ChartDataLabels],
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                label: 'Number of Shipped Games',  
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderWidth: 5,
+                data: yValues
+            }]
+        },
+        options: {
+            
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            tooltips: {
+                enabled: true,
+                titleFontSize: 25,
+                bodyFontSize: 25
+            },
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    fontSize: 17,
+                    fontColor: "black"
+                }
+            }
+        }
+    });
+</script>
+
+{% endblock %}
